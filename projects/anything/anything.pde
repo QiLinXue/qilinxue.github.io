@@ -21,10 +21,13 @@ void setup()
 }
 
 
-
+void keyPressed(){
+    println("hi");
+}
 void draw()
 
 {
+
 
   background(51);
 
