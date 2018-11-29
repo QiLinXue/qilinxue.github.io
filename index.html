@@ -114,6 +114,10 @@ permalink: /
                     {% if site.public_key_url %}
                     <li><a class="fa fa-2x fa-key" href="{{ site.public_key_url }}"><span class="description">PGP Key</span></a></li>
                     {% endif %}
+
+                    {% if site.devpost_username %}
+                    <li><a class="fa fa-2x fa-code" href="https://devpost.com/{{ site.devpost_username }}"><span class="description">Devpost</span></a></li>
+                    {% endif %}    
                 </ul>
         </div>
 
