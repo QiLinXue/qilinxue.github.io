@@ -3,7 +3,7 @@ name: QiLin Xue
 description: "Hello World"
 url: "google.com"
 
-resume: "/files/resume/resume.pdf"
+resume: "/resume/resume.pdf"
 
 # Delete the lines you don't need
 # about 5 elements are recomended
