@@ -1,125 +1,120 @@
----
-permalink: /
----
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="{{ site.description }}">
-        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-        {% if site.favicon_img %}
-        <link rel="shortcut icon" href="{{ site.favicon_img_path }}" />
-        {% endif %}
-        <link rel="stylesheet" href="{{ "css/front.css" | prepend: site.baseurl }}">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div class="content">
-            {% if site.front_img %}
-            <img src="{{ site.front_img_path }}" id="fullscreen">
-            {% endif %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            {% if site.avatar %}
-                <img src="{{ site.avatar_img_path }}" id="avatar">
-            {% endif %}
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="styling/bootstrap.min.css" />
+    <link rel="stylesheet" href="styling/custom.css" />
 
-            <h1>{{ site.name }}</h1>
-            <!-- <h3>{{ site.description }}</h3> -->
-            <h3>Check out my <a class="resume" href={{site.resume}}>Resume</a></h3>
-                <ul>
-                    {% if site.github_username %}
-                    <li><a class="fa fa-2x fa-github" href="https://github.com/{{ site.github_username }}"><span class="description">GitHub</span></a></li>
-                    {% endif %}
 
-                    {% if site.codepen_username %}
-                    <li><a class="fa fa-2x fa-codepen" href="https://codepen.io/{{ site.codepen_username }}"><span class="description">CodePen</span></a></li>
-                    {% endif %}
+    <title>QiLin Xue</title>
+  </head>
+  <body>
+  <!--
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-                    {% if site.facebook_username %}
-                    <li><a class="fa fa-2x fa-facebook" href="https://facebook.com/{{ site.facebook_username }}"><span class="description">Facebook</span></a></li>
-                    {% endif %}
-
-                    {% if site.vk_username %}
-                    <li><a class="fa fa-2x fa-vk" href="https://vk.com/{{ site.vk_username }}"><span class="description">ВКонтакте</span></a></li>
-                    {% endif %}
-
-                    {% if site.twitter_username %}
-                    <li><a class="fa fa-2x fa-twitter" href="https://twitter.com/{{ site.twitter_username }}"><span class="description">Twitter</span></a></li>
-                    {% endif %}
-
-                    {% if site.google_plus_username %}
-                    <li><a class="fa fa-2x fa-google-plus" href="https://plus.google.com/+{{ site.google_plus_username }}"><span class="description">Google +</span></a></li>
-                    {% endif %}
-
-                    {% if site.linkedin_username %}
-                    <li><a class="fa fa-2x fa-linkedin" href="https://linkedin.com/in/{{ site.linkedin_username }}"><span class="description">LinkedIn</span></a></li>
-                    {% endif %}
-
-                    {% if site.vine_username %}
-                    <li><a class="fa fa-2x fa-vine" href="https://vine.co/{{ site.vine_username }}"><span class="description">Vine</span></a></li>
-                    {% endif %}
-
-                    {% if site.instagram_username %}
-                    <li><a class="fa fa-2x fa-instagram" href="https://instagram.com/{{ site.instagram_username }}"><span class="description">Instagram</span></a></li>
-                    {% endif %}
-
-                    {% if site.flickr_usernmae %}
-                    <li><a class="fa fa-2x fa-flickr" href="https://flickr.com/photos/{{ site.flickr_username }}"><span class="description">Flickr</span></a></li>
-                    {% endif %}
-
-                    {% if site.steam_username %}
-                    <li><a class="fa fa-2x fa-steam" href="http://steamcommunity.com/id/{{ site.steam_username }}"><span class="description">Steam</span></a></li>
-                    {% endif %}
-
-                    {% if site.soundcloud_username %}
-                    <li><a class="fa fa-2x fa-soundcloud" href="https://soundcloud.com/{{ site.soundcloud_username }}"><span class="description">Soundcloud</span></a></li>
-                    {% endif %}
-
-                    {% if site.lastfm_username %}
-                    <li><a class="fa fa-2x fa-lastfm" href="http://www.last.fm/user/{{ site.lastfm_username }}"><span class="description">Last.fm</span></a></li>
-                    {% endif %}
-
-                    {% if site.stack_of_username %}
-                    <li><a class="fa fa-2x fa-stack-overflow" href="https://stackoverflow.com/users/{{ site.stack_of_username }}"><span class="description">Stack OF</span></a></li>
-                    {% endif %}
-
-                    {% if site.reddit_username %}
-                    <li><a class="fa fa-2x fa-reddit" href="https://reddit.com/user/{{ site.reddit_username }}"><span class="description">Reddit</span></a></li>
-                    {% endif %}
-
-                    {% if site.medium_username %}
-                    <li><a class="fa fa-2x fa-medium" href="https://medium.com/@{{ site.medium_username }}"><span class="description">Medium</span></a></li>
-                    {% endif %}
-
-                    {% if site.tumblr_username %}
-                    <li><a class="fa fa-2x fa-tumblr" href="https://{{ site.tumblr_username }}.tumblr.com/"><span class="description">Tumblr</span></a></li>
-                    {% endif %}
-
-                    {% if site.weibo_username %}
-                    <li><a class="fa fa-2x fa-weibo" href="https://weibo.com/{{ site.weibo_username }}"><span class="description">微博</span></a></li>
-                    {% endif %}
-
-                    {% if site.blog_url %}
-                    <li><a class="fa fa-2x fa-tags" href="{{ site.baseurl }}{{ site.blog_url }}"><span class="description">Blog</span></a></li>
-                    {% endif %}
-
-                    {% if site.email %}
-                    <li><a class="fa fa-2x fa-envelope" href="mailto:{{ site.email }}"><span class="description">Email</span></a></li>
-                    {% endif %}
-
-                    {% if site.public_key_url %}
-                    <li><a class="fa fa-2x fa-key" href="{{ site.public_key_url }}"><span class="description">PGP Key</span></a></li>
-                    {% endif %}
-
-                    {% if site.devpost_username %}
-                    <li><a class="fa fa-2x fa-code" href="https://devpost.com/{{ site.devpost_username }}"><span class="description">Devpost</span></a></li>
-                    {% endif %}    
-                </ul>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav> -->
 
-    </body>
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      
+      <div><img src="imgs/QiLinXue.png" width="260px" height="260px"><h1 class="display-3">QiLin Xue</h1></div>
+      <p class="lead">Hi! I'm a high school student and the former vice-chair of <a href="http://volunteeringpeel.org/events">Volunteering Peel</a>. In my free time you'll find my playing sports or doing physics.</p>
+      <p><a class="btn btn-primary btn-lg" href="#projects" role="button">See my resume! &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container" id="physics">
+      <h1>Physics</h1>
+      Since mid-2019, I've been obsessed with physics. Here are some of my personal projects and achievements: <br><br> 
+      <div class="row-md">
+        <h3>📜PUEC: Orbital Resonance Model</h3>
+        <p>          
+          As part of a challenge offered by <i>Physics Unlimited</i>, a few friends and I wrote a <a href=links/resonance.pdf>paper</a> that discussed techniques to model stable and unstable orbital resonances in the solar system. We expanded upon prior work to develop a better model of libration period in stable first order resonant systems and created an accurate model to predict the strengths of Kirkwood gaps.
+        </p>
+        <p><a class="btn btn-secondary" href="links/resonance.pdf" role="button">View Paper &raquo;</a></p>
+      </div>
+      <div class="row-md">
+        <h3>🥈TJPhO: Second</h3>
+        <p>          
+          I participated in the <a href="https://tjphysicsolympiad.com/">Thomas Jefferson Physics Olympiad</a> in a team of three. We came second overall and won $600 total. The 11 problems revolved around black hole physics. This included investigating black hole thermodynamics through Hawking radiation and deriving the Schwarzchild matrix with tensor calculus.
+        </p>
+        <p><a class="btn btn-secondary" href="links/tj.pdf" role="button">View Submission &raquo;</a></p>
+      </div>
+      <div class="row-md">
+        <h3>🥇McMaster Physics Contest: First</h3>
+        <p>          
+          I participated in the McMaster Physics Contest, an online one-hour multiple choice exam. My partner and I tied for first place and won the $100 prize.
+        </p>
+        <p><a class="btn btn-secondary" href="https://www.physics.mcmaster.ca/outreach/physics-mac-online-physics-competition.html" role="button">View Details &raquo;</a></p>
+      </div>
+      <div class="row-md">
+        <h3>📝Physics Brawl: 35th</h3>
+        <p>          
+          My team-mates and I came 35th in the highest division in this 3 hour long online physics marathon. We were the only team with students from different countries (and different schools!) so effective communication was difficult. Nevertheless it was a lot of fun and we all learned a lot.
+        </p>
+        <p><a class="btn btn-secondary" href="https://online.fyziklani.cz/en/" role="button">View Details &raquo;</a></p>
+      </div>
+      <div class="row-md">
+        <h3>🔗Physics Olympiad Discord Server</h3>
+        <p>          
+          I run the largest online physics olympiad server. Our community has over 400 members from around the world. I select daily problems to post from a variety of sources as well as write original weekly challenges.
+        </p>
+        <p><a class="btn btn-secondary" href="https://discord.gg/wyGAa49
+          " role="button">Join here &raquo;</a></p>
+      </div>
+      <div class="row-md">
+        <h3>‎‍🏫Physics Club Founder</h3>
+        <p>          
+          I founded the Physics Club at my school. We prepare and deliver lectures on physics topics outside the scope of the Ontario curriculum, yet not too difficult. Fluid statics and dynamics, thermodynamics, dimensional analysis, and other topics were taught.
+        </p>
+      </div>
+    </div>
+    <hr>
+
+  </div> <!-- /container -->
+
+</main>
+
+<!-- <footer class="container">
+  <p>&copy; QiLin Xue 2019</p>
+</footer> -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
 </html>
