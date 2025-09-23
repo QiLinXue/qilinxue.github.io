@@ -1,10 +1,11 @@
-name: Build and Deploy Docker Image
+name: Build Docker Image (Optional)
 
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch: # Manual trigger only
 
 env:
   REGISTRY: ghcr.io
@@ -52,29 +53,5 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
-  deploy-to-railway:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    
-    steps:
-    - name: Deploy to Railway
-      uses: railwayapp/railway-deploy@v1
-      with:
-        railway-token: ${{ secrets.RAILWAY_TOKEN }}
-        service: qilinxue-website
-        dockerfile-path: ./Dockerfile
-        docker-context: .
-
-  deploy-to-render:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    
-    steps:
-    - name: Deploy to Render
-      uses: johnbeynon/render-deploy-action@v0.0.8
-      with:
-        service-id: ${{ secrets.RENDER_SERVICE_ID }}
-        api-key: ${{ secrets.RENDER_API_KEY }}
-        dockerfile-path: ./Dockerfile
+  # Cloud deployment steps can be added here when needed
+  # For now, the Docker image is built and pushed to GitHub Container Registry
