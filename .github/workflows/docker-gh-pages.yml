@@ -1,0 +1,34 @@
+name: Deploy with Docker to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Build Docker image
+      run: docker build -t qilinxue-website .
+      
+    - name: Extract static files from Docker container
+      run: |
+        # Create a temporary container from the image
+        docker create --name temp-container qilinxue-website
+        
+        # Copy the built files from the container
+        docker cp temp-container:/usr/share/nginx/html ./dist-docker
+        
+        # Clean up
+        docker rm temp-container
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist-docker
+        enable_jekyll: false
