@@ -26,6 +26,9 @@ jobs:
         # Clean up
         docker rm temp-container
         
+        # List files to verify extraction
+        ls -la ./dist-docker
+        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
