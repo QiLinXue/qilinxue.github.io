@@ -130,10 +130,12 @@ const Projects = () => {
                       <Calendar size={14} className="mr-1" />
                       {project.year}
                     </div>
-                    <div className="flex items-center">
-                      <Users size={14} className="mr-1" />
-                      {project.teamSize}
-                    </div>
+                    {project.teamSize && (
+                      <div className="flex items-center">
+                        <Users size={14} className="mr-1" />
+                        {project.teamSize}
+                      </div>
+                    )}
                     <div className="flex items-center">
                       <Code2 size={14} className="mr-1" />
                       {project.duration}

@@ -8,11 +8,11 @@ export interface Project {
   status: 'Completed' | 'In Progress' | 'Ongoing'
   color: string
   duration: string
-  teamSize: string
   year: string
+  teamSize?: string
   challenges?: string[]
   achievements?: string[]
-  links: {
+  links?: {
     [key: string]: string
   }
   methodology?: {
